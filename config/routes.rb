@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :usuarios
+  resources :lojas
   resources :gerais
   resources :welcomes
   root to: "welcomes#index"

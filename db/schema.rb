@@ -10,10 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829204603) do
+ActiveRecord::Schema.define(version: 20160830150420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "gerais", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "descricao"
+    t.integer  "classificacao"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "serviceable_type"
+    t.integer  "serviceable_id"
+    t.index ["serviceable_id"], name: "index_gerais_on_serviceable_id", using: :btree
+    t.index ["serviceable_type"], name: "index_gerais_on_serviceable_type", using: :btree
+  end
+
+  create_table "lojas", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "email"
+    t.string   "telefone"
+    t.string   "fotografia_da_loja"
+    t.integer  "estado"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "loja_id"
+    t.integer  "representante_id"
+    t.index ["loja_id"], name: "index_lojas_on_loja_id", using: :btree
+    t.index ["representante_id"], name: "index_lojas_on_representante_id", using: :btree
+  end
+
+  create_table "usuarios", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "apelido"
+    t.string   "telefone"
+    t.integer  "genero"
+    t.date     "data_de_nascimento"
+    t.integer  "roles_mask",         default: 12
+    t.string   "nome_da_empresa"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
 
   create_table "welcomes", force: :cascade do |t|
     t.string   "nome"
@@ -21,4 +59,5 @@ ActiveRecord::Schema.define(version: 20160829204603) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "lojas", "lojas"
 end

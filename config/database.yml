@@ -23,9 +23,9 @@ default: &default
 
 development:
   <<: *default
-  database: "d7mu2fte6rk7e3" #sencoapp_development
-  username: "mxnvtpfoabhtde"
-  password: "sXsbb3OqafJ8bbeJXYdzCS6mZg"
+  database: sencoapp_development #"d7mu2fte6rk7e3" #
+  #username: "mxnvtpfoabhtde"
+  #password: "sXsbb3OqafJ8bbeJXYdzCS6mZg"
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
