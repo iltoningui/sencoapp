@@ -1,0 +1,1 @@
+json.partial! "gerais/geral", geral: @geral

@@ -1,0 +1,1 @@
+json.array! @gerais, partial: 'gerais/geral', as: :geral
