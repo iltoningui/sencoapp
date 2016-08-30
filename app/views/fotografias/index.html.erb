@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fotografias</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fotografias.each do |fotografia| %>
+      <tr>
+        <td><%= link_to 'Show', fotografia %></td>
+        <td><%= link_to 'Edit', edit_fotografia_path(fotografia) %></td>
+        <td><%= link_to 'Destroy', fotografia, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fotografia', new_fotografia_path %>

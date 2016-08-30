@@ -1,0 +1,1 @@
+json.array! @fotografias, partial: 'fotografias/fotografia', as: :fotografia

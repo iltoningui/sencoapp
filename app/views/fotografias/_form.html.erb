@@ -1,0 +1,17 @@
+<%= form_for(fotografia) do |f| %>
+  <% if fotografia.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fotografia.errors.count, "error") %> prohibited this fotografia from being saved:</h2>
+
+      <ul>
+      <% fotografia.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
