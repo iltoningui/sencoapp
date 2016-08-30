@@ -15,6 +15,24 @@ ActiveRecord::Schema.define(version: 20160830164001) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "alugueres", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carrinhos", force: :cascade do |t|
+    t.integer  "estado",     default: 1
+    t.integer  "usuario_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["usuario_id"], name: "index_carrinhos_on_usuario_id", using: :btree
+  end
+
+  create_table "fotografias", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "gerais", force: :cascade do |t|
     t.string   "nome"
     t.string   "descricao"
@@ -24,8 +42,19 @@ ActiveRecord::Schema.define(version: 20160830164001) do
     t.string   "serviceable_type"
     t.integer  "serviceable_id"
     t.integer  "estado",           default: 1
+    t.decimal  "preco"
     t.index ["serviceable_id"], name: "index_gerais_on_serviceable_id", using: :btree
     t.index ["serviceable_type"], name: "index_gerais_on_serviceable_type", using: :btree
+  end
+
+  create_table "horarios", force: :cascade do |t|
+    t.integer  "dia"
+    t.time     "entrada"
+    t.time     "saida"
+    t.integer  "loja_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["loja_id"], name: "index_horarios_on_loja_id", using: :btree
   end
 
   create_table "localizacoes", force: :cascade do |t|
@@ -78,6 +107,28 @@ ActiveRecord::Schema.define(version: 20160830164001) do
     t.index ["loja_id"], name: "index_produtos_on_loja_id", using: :btree
   end
 
+  create_table "pedidos", force: :cascade do |t|
+    t.integer  "estado"
+    t.integer  "quantidade"
+    t.decimal  "desconto"
+    t.decimal  "preco_unitario"
+    t.decimal  "preco_total"
+    t.integer  "tipo"
+    t.integer  "usuario_id"
+    t.integer  "geral_id"
+    t.integer  "loja_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["geral_id"], name: "index_pedidos_on_geral_id", using: :btree
+    t.index ["loja_id"], name: "index_pedidos_on_loja_id", using: :btree
+    t.index ["usuario_id"], name: "index_pedidos_on_usuario_id", using: :btree
+  end
+
+  create_table "servicos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "usuarios", force: :cascade do |t|
     t.string   "nome"
     t.string   "apelido"
@@ -96,6 +147,11 @@ ActiveRecord::Schema.define(version: 20160830164001) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "carrinhos", "usuarios"
+  add_foreign_key "horarios", "lojas"
   add_foreign_key "lojas", "lojas"
   add_foreign_key "produtos", "lojas"
+  add_foreign_key "pedidos", "gerais"
+  add_foreign_key "pedidos", "lojas"
+  add_foreign_key "pedidos", "usuarios"
 end

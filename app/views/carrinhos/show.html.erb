@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @carrinho.estado %>
+</p>
+
+<p>
+  <strong>Default:</strong>
+  <%= @carrinho.default %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @carrinho.usuario %>
+</p>
+
+<%= link_to 'Edit', edit_carrinho_path(@carrinho) %> |
+<%= link_to 'Back', carrinhos_path %>

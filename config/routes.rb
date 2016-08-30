@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   resources :piteus
   resources :localizacoes
   resources :produtos
+  resources :horarios
+  resources :fotografias
+  resources :alugueres
+  resources :servicos
+  resources :pedidos
+  resources :carrinhos
   resources :usuarios
   resources :lojas
   resources :gerais

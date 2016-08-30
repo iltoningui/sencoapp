@@ -1,0 +1,1 @@
+json.array! @alugueres, partial: 'alugueres/aluguer', as: :aluguer

@@ -1,0 +1,2 @@
+module AlugueresHelper
+end

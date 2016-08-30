@@ -1,0 +1,1 @@
+json.partial! "alugueres/aluguer", aluguer: @aluguer
