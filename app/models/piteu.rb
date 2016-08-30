@@ -1,0 +1,2 @@
+class Piteu < ApplicationRecord
+end
