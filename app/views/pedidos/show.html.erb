@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @pedido.estado %>
+</p>
+
+<p>
+  <strong>Quantidade:</strong>
+  <%= @pedido.quantidade %>
+</p>
+
+<p>
+  <strong>Desconto:</strong>
+  <%= @pedido.desconto %>
+</p>
+
+<p>
+  <strong>Preco unitario:</strong>
+  <%= @pedido.preco_unitario %>
+</p>
+
+<p>
+  <strong>Preco total:</strong>
+  <%= @pedido.preco_total %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @pedido.tipo %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @pedido.usuario %>
+</p>
+
+<p>
+  <strong>Geral:</strong>
+  <%= @pedido.geral %>
+</p>
+
+<p>
+  <strong>Loja:</strong>
+  <%= @pedido.loja %>
+</p>
+
+<%= link_to 'Edit', edit_pedido_path(@pedido) %> |
+<%= link_to 'Back', pedidos_path %>

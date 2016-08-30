@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  estado: 1
+  default: 
+  usuario: one
+
+two:
+  estado: 1
+  default: 
+  usuario: two

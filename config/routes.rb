@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :alugueres
+  resources :servicos
+  resources :pedidos
+  resources :carrinhos
   resources :usuarios
   resources :lojas
   resources :gerais

@@ -1,0 +1,2 @@
+class Aluguer < ApplicationRecord
+end

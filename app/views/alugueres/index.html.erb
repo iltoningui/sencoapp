@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Alugueres</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @alugueres.each do |aluguer| %>
+      <tr>
+        <td><%= link_to 'Show', aluguer %></td>
+        <td><%= link_to 'Edit', edit_aluguer_path(aluguer) %></td>
+        <td><%= link_to 'Destroy', aluguer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Aluguer', new_aluguer_path %>
