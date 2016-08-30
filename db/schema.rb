@@ -92,6 +92,22 @@ ActiveRecord::Schema.define(version: 20160830164001) do
     t.index ["representante_id"], name: "index_lojas_on_representante_id", using: :btree
   end
 
+  create_table "pedidos", force: :cascade do |t|
+    t.integer  "estado",         default: 1
+    t.integer  "quantidade"
+    t.decimal  "desconto"
+    t.decimal  "preco_unitario"
+    t.decimal  "preco_total"
+    t.integer  "usuario_id"
+    t.integer  "geral_id"
+    t.integer  "loja_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["geral_id"], name: "index_pedidos_on_geral_id", using: :btree
+    t.index ["loja_id"], name: "index_pedidos_on_loja_id", using: :btree
+    t.index ["usuario_id"], name: "index_pedidos_on_usuario_id", using: :btree
+  end
+
   create_table "piteus", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -105,23 +121,6 @@ ActiveRecord::Schema.define(version: 20160830164001) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["loja_id"], name: "index_produtos_on_loja_id", using: :btree
-  end
-
-  create_table "pedidos", force: :cascade do |t|
-    t.integer  "estado"
-    t.integer  "quantidade"
-    t.decimal  "desconto"
-    t.decimal  "preco_unitario"
-    t.decimal  "preco_total"
-    t.integer  "tipo"
-    t.integer  "usuario_id"
-    t.integer  "geral_id"
-    t.integer  "loja_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["geral_id"], name: "index_pedidos_on_geral_id", using: :btree
-    t.index ["loja_id"], name: "index_pedidos_on_loja_id", using: :btree
-    t.index ["usuario_id"], name: "index_pedidos_on_usuario_id", using: :btree
   end
 
   create_table "servicos", force: :cascade do |t|
@@ -150,8 +149,8 @@ ActiveRecord::Schema.define(version: 20160830164001) do
   add_foreign_key "carrinhos", "usuarios"
   add_foreign_key "horarios", "lojas"
   add_foreign_key "lojas", "lojas"
-  add_foreign_key "produtos", "lojas"
   add_foreign_key "pedidos", "gerais"
   add_foreign_key "pedidos", "lojas"
   add_foreign_key "pedidos", "usuarios"
+  add_foreign_key "produtos", "lojas"
 end
