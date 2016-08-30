@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830150420) do
+ActiveRecord::Schema.define(version: 20160830164001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,34 @@ ActiveRecord::Schema.define(version: 20160830150420) do
     t.string   "nome"
     t.string   "descricao"
     t.integer  "classificacao"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "serviceable_type"
     t.integer  "serviceable_id"
+    t.integer  "estado",           default: 1
     t.index ["serviceable_id"], name: "index_gerais_on_serviceable_id", using: :btree
     t.index ["serviceable_type"], name: "index_gerais_on_serviceable_type", using: :btree
+  end
+
+  create_table "localizacoes", force: :cascade do |t|
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.string   "city"
+    t.string   "address"
+    t.string   "state"
+    t.string   "state_code"
+    t.string   "postal_code"
+    t.string   "country"
+    t.string   "country_code"
+    t.integer  "tipo"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "endereco"
+    t.string   "street"
+    t.string   "locationable_type"
+    t.integer  "locationable_id"
+    t.index ["locationable_id"], name: "index_localizacoes_on_locationable_id", using: :btree
+    t.index ["locationable_type"], name: "index_localizacoes_on_locationable_type", using: :btree
   end
 
   create_table "lojas", force: :cascade do |t|
@@ -39,6 +61,21 @@ ActiveRecord::Schema.define(version: 20160830150420) do
     t.integer  "representante_id"
     t.index ["loja_id"], name: "index_lojas_on_loja_id", using: :btree
     t.index ["representante_id"], name: "index_lojas_on_representante_id", using: :btree
+  end
+
+  create_table "piteus", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "produtos", force: :cascade do |t|
+    t.decimal  "preco"
+    t.integer  "loja_id"
+    t.integer  "estado"
+    t.integer  "quantidade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["loja_id"], name: "index_produtos_on_loja_id", using: :btree
   end
 
   create_table "usuarios", force: :cascade do |t|
@@ -60,4 +97,5 @@ ActiveRecord::Schema.define(version: 20160830150420) do
   end
 
   add_foreign_key "lojas", "lojas"
+  add_foreign_key "produtos", "lojas"
 end

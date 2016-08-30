@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :piteus
+  resources :localizacoes
+  resources :produtos
   resources :usuarios
   resources :lojas
   resources :gerais
