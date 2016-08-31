@@ -4,6 +4,7 @@ class GeraisController < ApplicationController
   # GET /gerais
   # GET /gerais.json
   def index
+    redirect_to new_usuario_session_url unless usuario_signed_in?
     @gerais = Geral.all
   end
 
