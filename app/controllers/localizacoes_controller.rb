@@ -5,12 +5,12 @@ class LocalizacoesController < ApplicationController
   # GET /localizacoes.json
   def index
     @localizacoes = Localizacao.all
-  @hash = Gmaps4rails.build_markers(@localizacoes) do |localizacao, marker|
+    @hash = Gmaps4rails.build_markers(@localizacoes) do |localizacao, marker|
       marker.lat localizacao.latitude
       marker.lng localizacao.longitude
       marker.infowindow gmaps4rails_infowindow(localizacao)
-      marker.title gmaps4rails_title(localizacao)
-      marker.picture gmaps4rails_marker_picture
+      #marker.title gmaps4rails_title(localizacao)
+      #marker.picture gmaps4rails_marker_picture
  #    marker.json({:title => localizacao.locationable.email})
  #    marker.infowindow render_to_string(:partial => "/users/my_template", :locals => { :object => user})
  # marker.picture({
@@ -27,14 +27,12 @@ class LocalizacoesController < ApplicationController
 
 
   def gmaps4rails_infowindow(localizacao)
-    raiz = Rails.root
-    id = localizacao.id
     '<div class="row"><div class="col x4">#{link_to "Entrar", loja}</div><div class="col x8">fdgfhgjkjhjgfgdfdgfhg</div></div>'
       # add here whatever html content you desire, it will be displayed when users clicks on the marker
   end
 
   def gmaps4rails_title(localizacao)
-    localizacao.locationable.nome
+    #localizacao.locationable.nome if localizacao.locationable_type == "Loja"
       # add here whatever text you desire
   end
 
