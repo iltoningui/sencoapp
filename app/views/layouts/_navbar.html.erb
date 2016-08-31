@@ -1,0 +1,58 @@
+<ul class="dropdown-content" id="cart-dropdown">
+  <li><a href="#">limpar carrinho</a></li>
+  <li><a href="#">check out</a></li>
+</ul>
+<ul class="dropdown-content" id="account-dropdown">
+  <li><a href="http://localhost:3000/dashboard">login</a></li>
+  <li><a href="#">account settings</a></li>
+</ul>
+<ul class="dropdown-content" id="menu-dropdown">
+  <li><a href="#">menu item 1</a></li>
+  <li><a href="#">menu item 2</a></li>
+</ul>
+<ul class="dropdown-content" id="departamento-dropdown">
+  <li><a href="#" class="dropdown-button" data-activates="produto-dropdown">Produtos</a></li>
+  <li><a href="#">Pitéu</a></li>
+  <li><a href="#">Servicos</a></li>
+  <li><a href="#">Aluguer</a></li>
+</ul>
+<ul class="dropdown-content" id="produto-dropdown">
+  <li><a href="#" class="dropdown-button" data-activates="categoria-dropdown">Eletrónico</a></li>
+  <li><a href="#">Alimentos</a></li>
+  <li><a href="#">Eletrodomésticos</a></li>
+  <li><a href="#">Automóveis</a></li>
+</ul>
+<div class="navbar-fixed">
+  <nav class="bg-transparent navbar-my-color">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">
+        <i class="material-icons">fingerprint</i>senco
+      </a>
+      <ul class="left hide-on-med-and-down">
+        <li>
+          <a href="#" class="dropdown-button" data-activates="departamento-dropdown">
+            <i class="material-icons left">dashboard</i>Departamentos
+            <i class="material-icons right">arrow_drop_down</i>
+          </a>
+        </li>
+        <li><a href="#"><i class="material-icons left">map</i></a></li>
+        <li><a href="#"><i class="material-icons left">store_mall_directory</i></a></li>
+        <li><a href="#"><i class="material-icons left">favorite_border</i></a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li>
+          <a href="#" class="dropdown-button" data-activates="cart-dropdown">
+            <i class="material-icons">shopping_cart</i>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="dropdown-button" data-activates="menu-dropdown">
+            <i class="material-icons">apps</i>
+          </a>
+        </li>
+        <li><a href="#" class="dropdown-button" data-activates="notification-dropdown"><i class="material-icons">notifications</i></a></li>
+        <li><a href="#" class="dropdown-button" data-activates="account-dropdown"><i class="material-icons">account_circle</i></a></li>
+      </ul>
+    </div>
+  </nav>
+</div>

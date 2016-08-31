@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 20160831031212) do
     t.datetime "updated_at",                   null: false
     t.string   "serviceable_type"
     t.integer  "serviceable_id"
-    t.integer  "estado",           default: 1
     t.decimal  "preco"
+    t.integer  "estado",           default: 1
     t.index ["serviceable_id"], name: "index_gerais_on_serviceable_id", using: :btree
     t.index ["serviceable_type"], name: "index_gerais_on_serviceable_type", using: :btree
   end
@@ -93,16 +93,17 @@ ActiveRecord::Schema.define(version: 20160831031212) do
   end
 
   create_table "pedidos", force: :cascade do |t|
-    t.integer  "estado",         default: 1
+    t.integer  "estado"
     t.integer  "quantidade"
     t.decimal  "desconto"
     t.decimal  "preco_unitario"
     t.decimal  "preco_total"
+    t.integer  "tipo"
     t.integer  "usuario_id"
     t.integer  "geral_id"
     t.integer  "loja_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.index ["geral_id"], name: "index_pedidos_on_geral_id", using: :btree
     t.index ["loja_id"], name: "index_pedidos_on_loja_id", using: :btree
     t.index ["usuario_id"], name: "index_pedidos_on_usuario_id", using: :btree
@@ -114,12 +115,11 @@ ActiveRecord::Schema.define(version: 20160831031212) do
   end
 
   create_table "produtos", force: :cascade do |t|
-    t.decimal  "preco"
+    t.decimal  "preco",      default: "0.0"
     t.integer  "loja_id"
-    t.integer  "estado"
-    t.integer  "quantidade"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "quantidade", default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.index ["loja_id"], name: "index_produtos_on_loja_id", using: :btree
   end
 

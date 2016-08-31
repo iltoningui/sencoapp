@@ -14,8 +14,20 @@
   </head>
 
   <body>
-  <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <%= render "layouts/navbar" %>
+    <%= render "layouts/search_bar" %>
+
+   <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
+
+    <div class="section">
+      <div class="row">
+        <div class="col s12 m12">
+
+          <%= yield %>
+          <%= render "layouts/fixed_button" %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
