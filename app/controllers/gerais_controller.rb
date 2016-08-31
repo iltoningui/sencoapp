@@ -1,10 +1,24 @@
 class GeraisController < ApplicationController
   before_action :set_geral, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_usuario!
 
   # GET /gerais
   # GET /gerais.json
   def index
+    redirect_to new_usuario_session_url unless usuario_signed_in?
     @gerais = Geral.all
+    @carrinho = Carrinho.where(estado: "em_compra", usuario_id: current_usuario.id)
+    if @carrinho.count == 0
+      @carrinho = Carrinho.create(usuario_id: current_usuario.id, estado: "em_compra")
+      @carrinho.save
+    else
+      @carrinho = @carrinho.first
+    end
+  end
+
+  def add_to_cart
+    Geral.adiciona_ao_carrinho(@geral,@carrinho)
+    redirect_to gerais
   end
 
   # GET /gerais/1

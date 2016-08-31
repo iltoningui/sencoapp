@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831031212) do
+ActiveRecord::Schema.define(version: 20160831110841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20160831031212) do
     t.integer  "serviceable_id"
     t.integer  "estado",           default: 1
     t.decimal  "preco"
+    t.integer  "loja_id"
+    t.index ["loja_id"], name: "index_gerais_on_loja_id", using: :btree
     t.index ["serviceable_id"], name: "index_gerais_on_serviceable_id", using: :btree
     t.index ["serviceable_type"], name: "index_gerais_on_serviceable_type", using: :btree
   end
@@ -103,6 +105,8 @@ ActiveRecord::Schema.define(version: 20160831031212) do
     t.integer  "loja_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "carrinho_id"
+    t.index ["carrinho_id"], name: "index_pedidos_on_carrinho_id", using: :btree
     t.index ["geral_id"], name: "index_pedidos_on_geral_id", using: :btree
     t.index ["loja_id"], name: "index_pedidos_on_loja_id", using: :btree
     t.index ["usuario_id"], name: "index_pedidos_on_usuario_id", using: :btree
@@ -161,8 +165,10 @@ ActiveRecord::Schema.define(version: 20160831031212) do
   end
 
   add_foreign_key "carrinhos", "usuarios"
+  add_foreign_key "gerais", "lojas"
   add_foreign_key "horarios", "lojas"
   add_foreign_key "lojas", "lojas"
+  add_foreign_key "pedidos", "carrinhos"
   add_foreign_key "pedidos", "gerais"
   add_foreign_key "pedidos", "lojas"
   add_foreign_key "pedidos", "usuarios"
