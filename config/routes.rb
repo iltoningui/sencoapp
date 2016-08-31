@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :usuarios
   resources :piteus
   resources :localizacoes
   resources :produtos
@@ -12,6 +13,6 @@ Rails.application.routes.draw do
   resources :lojas
   resources :gerais
   resources :welcomes
-  root to: "welcomes#index"
+  root to: "gerais#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

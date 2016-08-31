@@ -13,4 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery
+//= require underscore
+//= require cocoon
+//= require gmaps/google
+//= require materialize-sprockets
+//= require materialize/extras/nouislider
 //= require_tree .

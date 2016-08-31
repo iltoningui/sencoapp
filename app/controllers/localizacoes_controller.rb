@@ -5,8 +5,74 @@ class LocalizacoesController < ApplicationController
   # GET /localizacoes.json
   def index
     @localizacoes = Localizacao.all
+  @hash = Gmaps4rails.build_markers(@localizacoes) do |localizacao, marker|
+      marker.lat localizacao.latitude
+      marker.lng localizacao.longitude
+      marker.infowindow gmaps4rails_infowindow(localizacao)
+      marker.title gmaps4rails_title(localizacao)
+      marker.picture gmaps4rails_marker_picture
+ #    marker.json({:title => localizacao.locationable.email})
+ #    marker.infowindow render_to_string(:partial => "/users/my_template", :locals => { :object => user})
+ # marker.picture({
+  #                :url => "http://www.blankdots.com/img/github-32x32.png",
+   #               :width   => 32,
+#                  :height  => 32
+ #                })
+  #marker.title   "i'm the title"
+  #marker.sidebar "i'm the sidebar"
+  #marker.json({ :id => user.id, :foo => "bar" })
+
+    end
   end
 
+
+  def gmaps4rails_infowindow(localizacao)
+    raiz = Rails.root
+    id = localizacao.id
+    '<div class="row"><div class="col x4">#{link_to "Entrar", loja}</div><div class="col x8">fdgfhgjkjhjgfgdfdgfhg</div></div>'
+      # add here whatever html content you desire, it will be displayed when users clicks on the marker
+  end
+
+  def gmaps4rails_title(localizacao)
+    localizacao.locationable.nome
+      # add here whatever text you desire
+  end
+
+
+  def gmaps4rails_sidebar
+    '<span class="foo">"#{name}"</span>' #put whatever you want here    
+  end
+
+  #def gmaps4rails_marker_picture
+   #   { picture: "/assets/1.jpg", width: "28", height: "33" }
+  #end
+#def gmaps4rails_marker_picture
+# {
+#  "picture" => ,          # string,  mandatory
+ #  "width" =>  ,          # integer, mandatory
+  # "height" => ,          # integer, mandatory
+#   "marker_anchor" => ,   # array,   facultative, [0, 0] is the upper left corner 
+ #                         #                       and [width, height] is the bottom right
+  # "shadow_picture" => ,  # string,  facultative
+#   "shadow_width" => ,    # string,  facultative
+#   "shadow_height" => ,   # string,  facultative
+ #  "shadow_anchor" => ,   # string,  facultative
+  # "rich_marker" =>   ,   # html, facultative
+                          # If used, all other attributes skipped except "marker_anchor". This array is used as follows:
+                          # [ anchor , flat ] : flat is a boolean, anchor is an int. 
+                          # See doc here: http://google-maps-utility-library-v3.googlecode.com/svn/trunk/richmarker/docs/reference.html 
+ #}
+#end
+
+def gmaps4rails_marker_picture
+  {
+    "rich_marker" =>  "<div class='my-marker'>It works!<img height='30' width='30' src='http://farm4.static.flickr.com/3212/3012579547_097e27ced9_m.jpg'/></div>"
+  }
+end
+  #@markers = '[
+   #          {"description": "", "title": "", "sidebar": "", "lng": "", "lat": "", "picture": "", "width": "", "height": ""},
+    #         {"lng": "", "lat": "" }
+     #       ]'
   # GET /localizacoes/1
   # GET /localizacoes/1.json
   def show
