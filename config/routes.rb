@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :compras
   devise_for :usuarios
   resources :piteus
   resources :localizacoes

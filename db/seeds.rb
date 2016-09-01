@@ -840,14 +840,22 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   cria_l
 ###########################################################################################################################
 
-
-#Loja.create(nome: 'Vasco Hamburguers', email: "vasco.hamburguers@vascohamburguers.com", telefone: "991000002", estado: 4)
-#Loja.create(nome: 'KFC', email: "kfc@kfc.com", telefone: "991000003", estado: 4)
-#Loja.create(nome: 'Unitel', email: "unitel@unitel.com", telefone: "991000004", estado: 4)
-#Loja.create(nome: 'Movicel', email: "movicel@movicel.com", telefone: "991000005", estado: 4)
-#Loja.create(nome: 'Restaurante Grill', email: "restaurante.grill@restaurantegrill.com", telefone: "991000006", estado: 4)
-#Loja.create(nome: 'Comer até Cair', email: "comer.ate.cair@comeratecair.com", telefone: "991000007", estado: 4)
-#Loja.create(nome: 'Só Correia', email: "so.correia@socorreia.com", telefone: "991000008", estado: 4)
-#Loja.create(nome: 'Eletricista Gomes', email: "eletricista.gomes@eletricistagomes.com", telefone: "991000009", estado: 4)
-#Loja.create(nome: 'Final Feliz', email: "final.feliz@finalfeliz.com", telefone: "991000010", estado: 4)
-#Loja.create(nome: 'Auto Completo', email: "auto.completo@autocompleto.com", telefone: "991000011", estado: 4)
+100.times do |l|
+    p = Produto.create()
+    g = Geral.create(classificacao: (rand 10), preco: (rand 500)*1000, nome: "produto-#{l} - #{(rand 84) + 1}",descricao: "descricao extensiva nº -#{l} - #{(rand 84) + 1}",serviceable_id: p.id, serviceable_type: p.class, loja_id: (rand 84) + 1)
+    p.save
+   g.save
+    p = Aluguer.create()
+   g = Geral.create(classificacao: (rand 10), preco: (rand 500)*1000, nome: "produto-#{l} - #{(rand 84) + 1}",descricao: "descricao extensiva nº -#{l} - #{(rand 84) + 1}",serviceable_id: p.id, serviceable_type: p.class, loja_id: (rand 84) + 1)
+   p.save
+   g.save
+   p = Piteu.create()
+   g = Geral.create(classificacao: (rand 10), preco: (rand 500)*1000, nome: "produto-#{l} - #{(rand 84) + 1}",descricao: "descricao extensiva nº -#{l} - #{(rand 84) + 1}",serviceable_id: p.id, serviceable_type: p.class, loja_id: (rand 84) + 1)
+    p.save
+   g.save
+  p = Servico.create()
+ g = Geral.create(classificacao: (rand 10), preco: (rand 500)*1000, nome: "produto-#{l} - #{(rand 84) + 1}",descricao: "descricao extensiva nº -#{l} - #{(rand 84) + 1}",serviceable_id: p.id, serviceable_type: p.class, loja_id: (rand 84) + 1)
+   p.save
+  g.save
+    
+end

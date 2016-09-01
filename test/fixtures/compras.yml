@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cartao_numero: MyString
+  pin_cartao: MyString
+  carrinho: one
+
+two:
+  cartao_numero: MyString
+  pin_cartao: MyString
+  carrinho: two
