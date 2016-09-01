@@ -17,13 +17,9 @@
         <td><%= localizacao.latitude %></td>
         <td><%= localizacao.longitude %></td>
         <td><%= link_to 'Show', localizacao %></td>
-        <td><%= link_to 'Edit', edit_localizacao_path(localizacao) %></td>
-        <td><%= link_to 'Destroy', localizacao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Localizacao', new_localizacao_path %>
