@@ -25,7 +25,6 @@ gem "cancancan"
 gem 'carrierwave'
 gem "cocoon"
 gem 'kaminari'
-#gem 'will_paginate-materialize'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
