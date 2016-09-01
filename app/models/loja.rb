@@ -6,5 +6,5 @@ class Loja < ApplicationRecord
     has_many :pedidos
     has_many :usuarios, through: :pedidos
     has_many :usuarios
-    has_many :gerais, as: :serviceable
+    has_many :gerais
 end

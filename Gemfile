@@ -24,6 +24,8 @@ gem 'devise'
 gem "cancancan"
 gem 'carrierwave'
 gem "cocoon"
+gem 'kaminari'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

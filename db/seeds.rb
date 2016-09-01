@@ -144,23 +144,23 @@ end
 def cria_local(loja = "loja")
   id = 0
   lugar = ""
-  if loja == "loja" 
+  if loja == "loja"
     id = @loja.id
     lugar = @loja_nome.downcase.gsub(" ","_").to_s
   else
     id = @representante.id
     lugar = "talatona".downcase.gsub(" ","_").to_s
   end
-  
+
    lugar = "kilamba_kiaxi" if $lugares[lugar].nil?
 
   coordenadas = []
 
   if $lugares[lugar].length > 1
-    coordenadas = $lugares[lugar][0] 
+    coordenadas = $lugares[lugar][0]
     latitude = coordenadas[0] + (rand 1000).to_f/100000
     longitude = coordenadas[1] + (rand 1000).to_f/100000
-     
+
   end
 
   localizacao = Localizacao.create(latitude: latitude, longitude: longitude, locationable_type: "Loja", locationable_id: id)
@@ -202,7 +202,7 @@ localizacao = Localizacao.create(latitude: -8.8146684, longitude: 13.2452389, lo
 localizacao = Localizacao.create(latitude: -8.95739, longitude: 13.1562089, locationable_type: "Usuario", locationable_id: @u.id)
   localizacao.save
 
-@u = Usuario.create(nome:'Gedeao', apelido: 'Vitem', email:'gedeao.vtem@senco.com', password: '12345678', password_confirmation: '12345678', roles_mask: 12)
+@u = Usuario.create(nome:'Gedeao', apelido: 'Vitem', email:'gedeao.vitem@senco.com', password: '12345678', password_confirmation: '12345678', roles_mask: 12)
 localizacao = Localizacao.create(latitude: -8.8631665, longitude: 13.2108636, locationable_type: "Usuario", locationable_id: @u.id)
   localizacao.save
 
@@ -214,7 +214,7 @@ localizacao = Localizacao.create(latitude: -8.9149494, longitude: 13.1889568, lo
 localizacao = Localizacao.create(latitude: -8.914394, longitude: 13.291444, locationable_type: "Usuario", locationable_id: @u.id)
   localizacao.save
 
-@u = Usuario.create(nome: "Cavelipa", apelido: "Tchipa", email: "cavelipa.tchipa@sendo.com", password: "12345678", password_confirmation: "12345678", roles_mask: 12) 
+@u = Usuario.create(nome: "Cavelipa", apelido: "Tchipa", email: "cavelipa.tchipa@sendo.com", password: "12345678", password_confirmation: "12345678", roles_mask: 12)
 localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, locationable_type: "Usuario", locationable_id: @u.id)
   localizacao.save
  #########nos vestimos###########################################################################################################################
@@ -226,7 +226,7 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   @entregador = "Engracia Gomes"
   cria_r
 
-  
+
   ###loja 1
   @loja_nome = "Gamek"
   @gerente = "Joao Cabanga"
@@ -234,28 +234,28 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   @entregador = "Jussena Milena"
   cria_l
 
-  
+
   ###loja 2
   @loja_nome = "Talatona"
   @gerente = "Ivone Igor"
   @atendedor = "Miguel Gaspar"
   @entregador = "Jon Snow"
   cria_l
-  
+
   ###loja 3
   @loja_nome = "Camama"
   @gerente = "Sergio Maziano"
   @atendedor = "Sersei Lanister"
   @entregador = "Theodore Sinclair"
   cria_l
-  
+
   ###loja 4
   @loja_nome = "Belas"
   @gerente = "Dizando Norton"
   @atendedor = "Ned Stark"
   @entregador = "Rob Stark"
   cria_l
-  
+
   ###loja 5
   @loja_nome = "Mutamba"
   @gerente = "Nemo Nunes"
@@ -272,35 +272,35 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   @atendedor = "Anderson Catumbela"
 @entregador = "Gersin Francisco"
   cria_r
-  
+
   ###loja 1
   @loja_nome = "Benfica"
   @gerente = "Sebastiao Antonio"
   @atendedor = "Andre Gomes"
   @entregador = "Carlos Andrade"
   cria_l
-  
+
   ###loja 2
   @loja_nome = "Rocha"
   @gerente = "Agostinho Bismar"
   @atendedor = "Anita Sachova"
   @entregador = "Miguel Pinto"
   cria_l
-  
+
   ###loja 3
   @loja_nome = "Benfica"
   @gerente = "Luis Sawa"
   @atendedor = "Evaristo Pedro"
   @entregador = "Eliana Cabanga"
   cria_l
-  
+
   ###loja 4
   @loja_nome = "Xyami Shopping"
   @gerente = "cleidy Guerrs"
   @atendedor = "Nhareynice Alexandre"
   @entregador = "Pedro Maquina"
   cria_l
-  
+
   ###loja 5
   @loja_nome = "Talatona"
   @gerente = "Antonio Lando"
@@ -317,35 +317,35 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   @atendedor = "Albertina Calupeteca"
   @entregador = "Laurinda Pires"
   cria_r
-  
+
   ###loja 1
   @loja_nome = "Benfica"
   @gerente = "Albertina Lucamba"
   @atendedor = "Ivandro Alex"
   @entregador = "Suely Pedro"
   cria_l
-  
+
   ###loja 2
   @loja_nome = "Ulengo"
   @gerente = "Clemencia Carlos"
   @atendedor = "Angelino Francisco"
   @entregador = "Abel Lazaro"
   cria_l
-  
+
   ###loja 3
   @loja_nome = "Ingombota"
   @gerente = "Roger Conceicao"
   @atendedor = "Darizia Lima"
   @entregador = "Pirlo Costa"
   cria_l
-  
+
   ###loja 4
   @loja_nome = "Xyami Shopping"
   @gerente = "Lionel Messi"
   @atendedor = "Andre Iniesta"
   @entregador = "Neymar Junior"
   cria_l
-  
+
   ###loja 5
   @loja_nome = "Talatona"
   @gerente = "Xavi Masquerano"
@@ -361,35 +361,35 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   @atendedor = "Octavio Costa"
   @entregador = "Nelson Kumba"
   cria_r
-  
+
   ###loja 1
   @loja_nome = "Atrium"
   @gerente = "Tumbula Padre"
   @atendedor = "Inacio Almeida"
   @entregador = "Manuel Cadete"
   cria_l
-  
+
   ###loja 2
   @loja_nome = "Benfica"
   @gerente = "Kinanga Pepe"
   @atendedor = "Pepy Guardiola"
   @entregador = "Mourinho Treinador"
   cria_l
-  
+
   ###loja 3
   @loja_nome = "Rocha"
   @gerente = "Alexandrino Francisco"
   @atendedor = "Naomi Muangui"
   @entregador = "Ailton Gerson"
   cria_l
-  
+
   ###loja 4
   @loja_nome = "Xyami Shopping"
   @gerente = "Darline Sanxelz"
   @atendedor = "Vicente Charpe"
   @entregador = "Vilma Gertrudes"
   cria_l
-  
+
   ###loja 5
   @loja_nome = "Talatona"
   @gerente = "Dino Malaquia"
@@ -405,35 +405,35 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   @atendedor = "Hilaria Clinton"
   @entregador = "Valente Edvaldo"
   cria_r
-  
+
   ###loja 1
   @loja_nome = "Atrium"
   @gerente = "Edvaldo Paca"
   @atendedor = "Diakondua Ranchu"
   @entregador = "Diolinda Rodrigues"
   cria_l
-  
+
   ###loja 2
   @loja_nome = "Benfica"
   @gerente = "Ernesto Bartolomeu"
   @atendedor = "Francisca Carloss"
   @entregador = "Cahisso Bongo"
   cria_l
-  
+
   ###loja 3
   @loja_nome = "Rocha"
   @gerente = "Josemar Manuell"
   @atendedor = "Tina Tchicola"
   @entregador = "Maria Santana"
   cria_l
-  
+
   ###loja 4
   @loja_nome = "Xyami Shopping"
   @gerente = "Santa Maria"
   @atendedor = "Mariana Sousa"
   @entregador = "Silva Marques"
   cria_l
-  
+
   ###loja 5
   @loja_nome = "Talatona"
   @gerente = "Meidy Ricardo"
@@ -449,35 +449,35 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   @atendedor = "Janeth Coelho"
   @entregador = "Celia Melo"
   cria_r
-  
+
   ###loja 1
   @loja_nome = "Atrium"
   @gerente = "Anilca Cabral"
   @atendedor = "Isandra Campus"
   @entregador = "Marlene Gloria"
   cria_l
-  
+
   ###loja 2
   @loja_nome = "Benfica"
   @gerente = "Barbosa Sol"
   @atendedor = "Eugenia Cita"
   @entregador = "Neila Kinta"
   cria_l
-  
+
   ###loja 3
   @loja_nome = "Ingombota"
   @gerente = "Sontos Santos"
   @atendedor = "Olivia Silva"
   @entregador = "Santana Cristian"
   cria_l
-  
+
   ###loja 4
   @loja_nome = "Xyami Shopping"
   @gerente = "Souza Lourenco"
   @atendedor = "Joao Ngoma"
   @entregador = "Belchior Silva"
   cria_l
-  
+
   ###loja 5
   @loja_nome = "Talatona"
   @gerente = "Ferreia Silva"
@@ -493,35 +493,35 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   @atendedor = "Ketin Perry"
   @entregador = "Pereira Pereira"
   cria_r
-  
+
   ###loja 1
   @loja_nome = "Atrium"
   @gerente = "Evora Lima"
   @atendedor = "Lima Carlos"
   @entregador = "Rodrigues Paulo"
   cria_l
-  
+
   ###loja 2
   @loja_nome = "Benfica"
   @gerente = "Gomes Alves"
   @atendedor = "Pirlo Pereira"
   @entregador = "Andre Alves"
   cria_l
-  
+
   ###loja 3
   @loja_nome = "Rocha"
   @gerente = "Maria Fatima"
   @atendedor = "Edson Marques"
   @entregador = "Edmilson Figo"
   cria_l
-  
+
   ###loja 4
   @loja_nome = "Xyami Shopping"
   @gerente = "Almeida Roger"
   @atendedor = "Carvalho Almeida"
   @entregador = "Marques Vieira"
   cria_l
-  
+
   ###loja 5
   @loja_nome = "Talatona"
   @gerente = "Robertos Carlos"
@@ -537,35 +537,35 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   @atendedor = "Vieira Queiroz"
   @entregador = "Carvalho Queiroz"
   cria_r
-  
+
   ###loja 1
   @loja_nome = "Atrium"
   @gerente = "Aurojo Pinto"
   @atendedor = "Soares Diniz"
   @entregador = "Souza Fernadess"
   cria_l
-  
+
   ###loja 2
   @loja_nome = "Benfica"
   @gerente = "Santana Diniz"
   @atendedor = "Santana Branca"
   @entregador = "Brindes Araujo"
   cria_l
-  
+
   ###loja 3
   @loja_nome = "Rocha"
   @gerente = "Dimas Pinheiro"
   @atendedor = "Agostinho Neto"
   @entregador = "Maria Borge"
   cria_l
-  
+
   ###loja 4
   @loja_nome = "Xyami Shopping"
   @gerente = "Mario Borge"
   @atendedor = "Mario Andrade"
   @entregador = "Afrodite Paca"
   cria_l
-  
+
   ###loja 5
   @loja_nome = "Talatona"
   @gerente = "Pipas Nodua"
@@ -581,35 +581,35 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   @atendedor = "Maria Natalia"
   @entregador = "Helena Ana"
   cria_r
-  
+
   ###loja 1
   @loja_nome = "Atrium"
   @gerente = "Carlos Paulo"
   @atendedor = "Celia Pinpim"
   @entregador = "Isabel Bamba"
   cria_l
-  
+
   ###loja 2
   @loja_nome = "Benfica"
   @gerente = "Olavio Agostinho"
   @atendedor = "Agostinho Jose"
   @entregador = "Jose Olavio"
   cria_l
-  
+
   ###loja 3
   @loja_nome = "Rocha"
   @gerente = "Elka Kay"
   @atendedor = "Kay Edson"
   @entregador = "Neto Vava"
   cria_l
-  
+
   ###loja 4
   @loja_nome = "Xyami Shopping"
   @gerente = "Malcon Valete"
   @atendedor = "Karol Malaquias"
   @entregador = "Antonia Suzalina"
   cria_l
-  
+
   ###loja 5
   @loja_nome = "Talatona"
   @gerente = "Anderson Catumbela"
@@ -625,7 +625,7 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   @atendedor = "Luso Piri"
   @entregador = "Piri Aurelio"
   cria_r
-  
+
   ###loja 1
   @loja_nome = "Atrium"
   @gerente = "Dayson Lima"
@@ -633,28 +633,28 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   @entregador = "Edvaldo Arsenio"
   cria_l
 
-  
+
   ###loja 2
   @loja_nome = "Benfica"
   @gerente = "Pikiny Chicola"
   @atendedor = "Eleuterio Campus"
   @entregador = "carvalio Capri"
   cria_l
-  
+
   ###loja 3
   @loja_nome = "Ingombota"
   @gerente = "Beatriz Ernestro"
   @atendedor = "Aida Faztudo"
   @entregador = "Dani Augusto"
   cria_l
-  
+
   ###loja 4
   @loja_nome = "Xyami Shopping"
   @gerente = "Jonacio Txissola"
   @atendedor = "Lili Felicia"
   @entregador = "Ed Lacalete"
   cria_l
-  
+
   ###loja 5
   @loja_nome = "Talatona"
   @gerente = "Gerson Sebastiaos"
@@ -670,35 +670,35 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   @atendedor = "Carla Conceicaos"
   @entregador = "Guilherme Zangui"
   cria_r
-  
+
   ###loja 1
   @loja_nome = "Atrium"
   @gerente = "Pedro Nzambi"
   @atendedor = "Madalena Anjo"
   @entregador = "Lau Palanca"
   cria_l
-  
+
   ###loja 2
   @loja_nome = "Benfica"
   @gerente = "Victoria Simba"
   @atendedor = "Simba Ferreia"
   @entregador = "Simba Nduzi"
   cria_l
-  
+
   ###loja 3
   @loja_nome = "Ingombota"
   @gerente = "Stelvio Torcato"
   @atendedor = "Torcato pedro"
   @entregador = "Rita Marques"
   cria_l
-  
+
   ###loja 4
   @loja_nome = "Xyami Shopping"
   @gerente = "Lovicia Ricardo"
   @atendedor = "Ricardo Avelino"
   @entregador = "Avelina Nana"
   cria_l
-  
+
   ###loja 5
   @loja_nome = "Talatona"
   @gerente = "Loyde Tchivinda"
@@ -714,35 +714,35 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   @atendedor = "Augusta Caputo"
   @entregador = "Caputo Andre"
   cria_r
-  
+
   ###loja 1
   @loja_nome = "Atrium"
   @gerente = "Bula Scout"
   @atendedor = "Scout Andre"
   @entregador = "Edsonm Cabanga"
   cria_l
-  
+
   ###loja 2
   @loja_nome = "Benfica"
   @gerente = "Manuel Fonseca"
   @atendedor = "Agnel Cabral"
   @entregador = "Maria Sousa"
   cria_l
-  
+
   ###loja 3
   @loja_nome = "Ingombota"
   @gerente = "Antoine Francisco"
   @atendedor = "Auria Santos"
   @entregador = "Jesus Anderson"
   cria_l
-  
+
   ###loja 4
   @loja_nome = "Xyami Shopping"
   @gerente = "Eurico Victor"
   @atendedor = "Victor Claudio"
   @entregador = "Jose Mandes"
   cria_l
-  
+
   ###loja 5
   @loja_nome = "Talatona"
   @gerente = "Edmilson Yessoll"
@@ -758,35 +758,35 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   @atendedor = "Florinda Paulo"
   @entregador = "Braga Gabriel"
   cria_r
-  
+
   ###loja 1
   @loja_nome = "Atrium"
   @gerente = "Gerge Novas"
   @atendedor = "Indira Lopes"
   @entregador = "Lopes Neves"
   cria_l
-  
+
   ###loja 2
   @loja_nome = "Benfica"
   @gerente = "Lucelia Miguel"
   @atendedor = "Adelino Campus"
   @entregador = "Miguel Avelina"
   cria_l
-  
+
   ###loja 3
   @loja_nome = "Ingombota"
   @gerente = "Didinho Bangu"
   @atendedor = "Elizabeth Francisquinha"
   @entregador = "Eury Frank"
   cria_l
-  
+
   ###loja 4
   @loja_nome = "Xyami Shopping"
   @gerente = "Geroge Figuras"
   @atendedor = "Helcio Mendes"
   @entregador = "mendes Galaxya"
   cria_l
-  
+
   ###loja 5
   @loja_nome = "Talatona"
   @gerente = "Mendes Nasse"
@@ -803,35 +803,35 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   @atendedor = "lacinha Paulo"
   @entregador = "Patricia tiago"
   cria_r
-  
+
   ###loja 1
   @loja_nome = "Atrium"
   @gerente = "Patricio Weber"
   @atendedor = "Pedro Tiago"
   @entregador = "Tiago Sousa"
   cria_l
-  
+
   ###loja 2
   @loja_nome = "Benfica"
   @gerente = "Rosa Guerra"
   @atendedor = "Suely Massarico"
   @entregador = "Samuel Zamba"
   cria_l
-  
+
   ###loja 3
   @loja_nome = "Ingombota"
   @gerente = "Samuel Hossi"
   @atendedor = "Tamba Ribeiro"
   @entregador = "Victorio Santoss"
   cria_l
-  
+
   ###loja 4
   @loja_nome = "Xyami Shopping"
   @gerente = "Venancia Vemba"
   @atendedor = "Vila Pereira"
   @entregador = "Pedrosa Mande"
   cria_l
-  
+
   ###loja 5
   @loja_nome = "Talatona"
   @gerente = "Malu Francisco"
@@ -840,14 +840,22 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   cria_l
 ###########################################################################################################################
 
+150.times do |l|
+    p = Produto.create()
+    g = Geral.create(preco: (rand 5000) * 110, classificacao: (rand 7) + 3, nome: "produto-#{l} - #{(rand 84)}",descricao: "descricao extensiva nº -#{l} - #{(rand 84)}",serviceable_id: p.id, serviceable_type: p.class, loja_id: (rand 84) + 1)
+    p.save
+    g.save
+    p = Aluguer.create()
+    g = Geral.create(preco: (rand 5000) * 110, classificacao: (rand 7) + 3, nome: "produto-#{l} - #{(rand 84)}",descricao: "descricao extensiva nº -#{l} - #{(rand 84)}",serviceable_id: p.id, serviceable_type: p.class, loja_id: (rand 84) + 1)
+    p.save
+    g.save
+    p = Piteu.create()
+    g = Geral.create(preco: (rand 5000) * 110, classificacao: (rand 7) + 3, nome: "produto-#{l} - #{(rand 84)}",descricao: "descricao extensiva nº -#{l} - #{(rand 84)}",serviceable_id: p.id, serviceable_type: p.class, loja_id: (rand 84) + 1)
+    p.save
+    g.save
+    p = Servico.create()
+    g = Geral.create(preco: (rand 5000) * 110, classificacao: (rand 7) + 3, nome: "produto-#{l} - #{(rand 84)}",descricao: "descricao extensiva nº -#{l} - #{(rand 84)}",serviceable_id: p.id, serviceable_type: p.class, loja_id: (rand 84) + 1)
+    p.save
+    g.save
 
-#Loja.create(nome: 'Vasco Hamburguers', email: "vasco.hamburguers@vascohamburguers.com", telefone: "991000002", estado: 4)
-#Loja.create(nome: 'KFC', email: "kfc@kfc.com", telefone: "991000003", estado: 4)
-#Loja.create(nome: 'Unitel', email: "unitel@unitel.com", telefone: "991000004", estado: 4)
-#Loja.create(nome: 'Movicel', email: "movicel@movicel.com", telefone: "991000005", estado: 4)
-#Loja.create(nome: 'Restaurante Grill', email: "restaurante.grill@restaurantegrill.com", telefone: "991000006", estado: 4)
-#Loja.create(nome: 'Comer até Cair', email: "comer.ate.cair@comeratecair.com", telefone: "991000007", estado: 4)
-#Loja.create(nome: 'Só Correia', email: "so.correia@socorreia.com", telefone: "991000008", estado: 4)
-#Loja.create(nome: 'Eletricista Gomes', email: "eletricista.gomes@eletricistagomes.com", telefone: "991000009", estado: 4)
-#Loja.create(nome: 'Final Feliz', email: "final.feliz@finalfeliz.com", telefone: "991000010", estado: 4)
-#Loja.create(nome: 'Auto Completo', email: "auto.completo@autocompleto.com", telefone: "991000011", estado: 4)
+end

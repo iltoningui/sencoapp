@@ -1,4 +1,59 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_geral_path(@geral) %> |
-<%= link_to 'Back', gerais_path %>
+<div class="section white">
+    <div class="">
+        <div class="row detail-hero">
+            <div class="col offset-m1 m6 s12">
+                <div class="row col s12">
+                    <img width="70%" src="http://localhost:3000/assets/gerais/<%= rand (1..7) %>.jpg">
+                </div>
+                <% 1.upto(6) do |l| %>
+                    <div class="col s1 m2">
+                        <img width="100%" src="http://localhost:3000/assets/gerais/<%= l %>.jpg">
+                    </div>
+                <% end%>
+            </div>
+            <div class="col m5 s12">
+                <h1><%= @geral.nome %></h1>
+                <%= link_to "loja: #{@geral.loja.nome}", loja_url(@geral.loja.id) %>
+                <p>
+                    <% star = @geral.classificacao/2  %>
+                    <% half = star % 2 %>
+                    <% star_rest = 5 - star - half  %>
+                    <% star.downto(1) do |s| %>
+                        <span><i class="material-icons" style="color: #ffeb3b">star</i></span>
+                    <%end%>
+                    <% if half == 1 %>
+                        <span><i class="material-icons" style="color: #ffeb3b">star_half</i></span>
+                    <%end%>
+                    <% star_rest.downto(1) do |r| %>
+                        <span><i class="material-icons" style="color: #ffeb3b">star_border</i></span>
+                    <%end%>
+                    <span><%= rand (20..78)%> Usuarios</span>
+                    
+                </p>             
+                <blockquote>
+                    <span class="green-text text-darken-3">Preço: <%= @geral.preco%> Kzs</span>
+                </blockquote>
+                
+                <p class="product-heading">Produto de qualidade, 60 de RAM, 6TB SSHD, </p>
+                <div class="product-summary">
+                    <p>
+                    System: AMD FX-4300 3.80GHZ Quad-Core | AMD 760G Chipset | 8GB DDR3 | 1TB HDD | Genuine Windows 10 Home 64-bit
+Graphics: AMD Radeon R7 240 2GB Video Card | 24X DVD±RW Dual-Layer Drive | Audio: 7.1 Channel | Gigabit LAN | Keyboard and Mouse
+Connectivity: 6x USB 2.0 | 1x RJ-45 Network Ethernet 10/100/1000 | Audio | 1x HDMI | 1x DVI | 1x VGA
+Warranty: 1 Year Parts  Labor Warranty | Free Lifetime Tech Support
+                    
+                     </p>
+</div>
+                <div class="row container">
+                    <div class="col s3 m3">
+                    <%= link_to add_to_cart_path(@geral), method: :patch, class:"btn" do%>
+                        <i class="material-icons">add_shopping_cart</i>
+                    <%end%>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
