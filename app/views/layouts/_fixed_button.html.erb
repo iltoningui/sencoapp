@@ -1,0 +1,29 @@
+
+<% @fab == %>
+<%if @fab == "adicionar"%>
+  <div class="fixed-action-btn click-to-toggle" style="bottom: 45px; right: 24px;">
+    <%= link_to add_to_cart_path(@geral), method: :patch, class:"btn-floating btn-large blue" do %>
+      <i class="material-icons right">add_shopping_cart</i>
+    <%end%>
+  </div>
+<%else%>
+  <div class="fixed-action-btn click-to-togle" style="bottom: 45px; right: 24px;">
+    <a href="#" class="btn-floating btn-large blue">
+      <i class="large material-icons">menu</i>
+    </a>
+    <ul>
+      <li>
+      <%= link_to localizacoes_url, class:"btn-floating blue" do %>
+        <i class="material-icons">map</i>
+      <%end%>
+      </li>
+      <li>
+        <%= link_to lojas_url, class:"btn-floating blue" do %>
+          <i class="material-icons blue">store_mall_directory</i>
+        <%end%>
+      </li>
+      <li><a href="#" class="btn-floating yellow"><i class="material-icons">favorite_border</i></a></li>
+      <li><a href="#" class="btn-floating violet"><i class="material-icons">dashboard</i></a></li>
+    </ul>
+  </div>
+<%end%>

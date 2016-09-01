@@ -16,7 +16,6 @@
     <% @carrinhos.each do |carrinho| %>
       <tr>
         <td><%= carrinho.estado %></td>
-        <td><%= carrinho.default %></td>
         <td><%= carrinho.usuario %></td>
         <td><%= link_to 'Show', carrinho %></td>
         <td><%= link_to 'Edit', edit_carrinho_path(carrinho) %></td>

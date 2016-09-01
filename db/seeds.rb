@@ -202,7 +202,7 @@ localizacao = Localizacao.create(latitude: -8.8146684, longitude: 13.2452389, lo
 localizacao = Localizacao.create(latitude: -8.95739, longitude: 13.1562089, locationable_type: "Usuario", locationable_id: @u.id)
   localizacao.save
 
-@u = Usuario.create(nome:'Gedeao', apelido: 'Vitem', email:'gedeao.vtem@senco.com', password: '12345678', password_confirmation: '12345678', roles_mask: 12)
+@u = Usuario.create(nome:'Gedeao', apelido: 'Vitem', email:'gedeao.vitem@senco.com', password: '12345678', password_confirmation: '12345678', roles_mask: 12)
 localizacao = Localizacao.create(latitude: -8.8631665, longitude: 13.2108636, locationable_type: "Usuario", locationable_id: @u.id)
   localizacao.save
 
@@ -840,22 +840,22 @@ localizacao = Localizacao.create(latitude: -8.834034, longitude: 13.2461729, loc
   cria_l
 ###########################################################################################################################
 
-100.times do |l|
- #   p = Produto.create()
-  #  g = Geral.create(nome: "produto-#{l} - #{(rand 84)}",descricao: "descricao extensiva nº -#{l} - #{(rand 84)}",serviceable_id: p.id, serviceable_type: p.class, loja_id: (rand 84))
-   # p.save
-  #  g.save
-  #  p = Aluguer.create()
-   # g = Geral.create(nome: "produto-#{l} - #{(rand 84)}",descricao: "descricao extensiva nº -#{l} - #{(rand 84)}",serviceable_id: p.id, serviceable_type: p.class, loja_id: (rand 84))
-#    p.save
- #   g.save
-  #  p = Piteu.create()
-   # g = Geral.create(nome: "produto-#{l} - #{(rand 84)}",descricao: "descricao extensiva nº -#{l} - #{(rand 84)}",serviceable_id: p.id, serviceable_type: p.class, loja_id: (rand 84))
-#    p.save
- #   g.save
-  #  p = Servico.create()
-   # g = Geral.create(nome: "produto-#{l} - #{(rand 84)}",descricao: "descricao extensiva nº -#{l} - #{(rand 84)}",serviceable_id: p.id, serviceable_type: p.class, loja_id: (rand 84))
- #   p.save
-  #  g.save
+150.times do |l|
+    p = Produto.create()
+    g = Geral.create(preco: (rand 5000) * 110, classificacao: (rand 7) + 3, nome: "produto-#{l} - #{(rand 84)}",descricao: "descricao extensiva nº -#{l} - #{(rand 84)}",serviceable_id: p.id, serviceable_type: p.class, loja_id: (rand 84) + 1)
+    p.save
+    g.save
+    p = Aluguer.create()
+    g = Geral.create(preco: (rand 5000) * 110, classificacao: (rand 7) + 3, nome: "produto-#{l} - #{(rand 84)}",descricao: "descricao extensiva nº -#{l} - #{(rand 84)}",serviceable_id: p.id, serviceable_type: p.class, loja_id: (rand 84) + 1)
+    p.save
+    g.save
+    p = Piteu.create()
+    g = Geral.create(preco: (rand 5000) * 110, classificacao: (rand 7) + 3, nome: "produto-#{l} - #{(rand 84)}",descricao: "descricao extensiva nº -#{l} - #{(rand 84)}",serviceable_id: p.id, serviceable_type: p.class, loja_id: (rand 84) + 1)
+    p.save
+    g.save
+    p = Servico.create()
+    g = Geral.create(preco: (rand 5000) * 110, classificacao: (rand 7) + 3, nome: "produto-#{l} - #{(rand 84)}",descricao: "descricao extensiva nº -#{l} - #{(rand 84)}",serviceable_id: p.id, serviceable_type: p.class, loja_id: (rand 84) + 1)
+    p.save
+    g.save
 
-#end
+end

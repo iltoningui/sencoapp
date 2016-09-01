@@ -14,8 +14,10 @@
   </head>
 
   <body>
+  <%= render "layouts/navbar" %>
   <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
     <%= yield %>
+    <%= render "layouts/fixed_button" %>
   </body>
 </html>

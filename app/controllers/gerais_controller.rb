@@ -6,7 +6,30 @@ class GeraisController < ApplicationController
   # GET /gerais.json
   def index
     redirect_to new_usuario_session_url unless usuario_signed_in?
-    @gerais = Geral.all
+    @gerais = Geral.all.page(params[:page]).per(40)
+
+    if current_usuario.roles_mask == "cliente"
+      @carrinho = Carrinho.where(estado: "em_compra", usuario_id: current_usuario.id)
+      if @carrinho.count == 0
+        @carrinho = Carrinho.create(usuario_id: current_usuario.id, estado: "em_compra")
+        @carrinho.save
+      else
+        @carrinho = @carrinho.first
+      end
+    end
+
+
+  end
+
+
+  # GET /gerais/1
+  # GET /gerais/1.json
+  def show
+    @fab = "adicionar"
+  end
+
+  def add_to_cart
+    geral = Geral.find(params[:id])
     @carrinho = Carrinho.where(estado: "em_compra", usuario_id: current_usuario.id)
     if @carrinho.count == 0
       @carrinho = Carrinho.create(usuario_id: current_usuario.id, estado: "em_compra")
@@ -14,18 +37,10 @@ class GeraisController < ApplicationController
     else
       @carrinho = @carrinho.first
     end
-  end
 
-  def add_to_cart
-    Geral.adiciona_ao_carrinho(@geral,@carrinho)
-    redirect_to gerais
+    Geral.adiciona_ao_carrinho(geral,@carrinho)
+    redirect_to gerais_url
   end
-
-  # GET /gerais/1
-  # GET /gerais/1.json
-  def show
-  end
-
   # GET /gerais/new
   def new
     @geral = Geral.new

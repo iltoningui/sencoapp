@@ -85,9 +85,9 @@ ActiveRecord::Schema.define(version: 20160831110841) do
     t.string   "email"
     t.string   "telefone"
     t.string   "fotografia_da_loja"
-    t.integer  "estado"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.integer  "estado",             default: 1
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "loja_id"
     t.integer  "representante_id"
     t.index ["loja_id"], name: "index_lojas_on_loja_id", using: :btree
@@ -118,12 +118,11 @@ ActiveRecord::Schema.define(version: 20160831110841) do
   end
 
   create_table "produtos", force: :cascade do |t|
-    t.decimal  "preco"
+    t.decimal  "preco",      default: "0.0"
     t.integer  "loja_id"
-    t.integer  "estado"
-    t.integer  "quantidade"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "quantidade", default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.index ["loja_id"], name: "index_produtos_on_loja_id", using: :btree
   end
 
