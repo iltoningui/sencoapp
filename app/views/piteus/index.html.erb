@@ -13,13 +13,7 @@
     <% @piteus.each do |piteu| %>
       <tr>
         <td><%= link_to 'Show', piteu %></td>
-        <td><%= link_to 'Edit', edit_piteu_path(piteu) %></td>
-        <td><%= link_to 'Destroy', piteu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Piteu', new_piteu_path %>

@@ -21,13 +21,7 @@
         <td><%= horario.saida.time %></td>
         <td><%= horario.loja %></td>
         <td><%= link_to 'Show', horario %></td>
-        <td><%= link_to 'Edit', edit_horario_path(horario) %></td>
-        <td><%= link_to 'Destroy', horario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Horario', new_horario_path %>

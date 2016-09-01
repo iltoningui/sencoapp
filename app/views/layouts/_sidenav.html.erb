@@ -1,0 +1,47 @@
+<ul id="slide-out" class="side-nav">
+    <li>
+      <div class="userView">
+        <img class="background" width="100%" src="assets/account_bg/<%=rand (1..9)%>.jpg">
+        <a href="#!user"><img class="circle" src="assets/account_bg/<%=rand (1..9)%>.jpg"></a>
+        <% if usuario_signed_in? %>
+          <a href="#!name"><span class="white-text name"><%= "#{current_usuario.nome} #{current_usuario.apelido}"%></span></a>
+          <a href="#!email"><span class="white-text email"><%= "#{current_usuario.email}"%></span></a>
+        <% end %>
+      </div>
+    </li>
+    <li>
+      <%= link_to gerais_url, class: "waves-effect" do %>
+          Compras <i class="material-icons left">store</i>
+      <%end%>
+    </li>
+    <li><div class="divider"></div></li>
+    <li>
+      <%= link_to localizacoes_url, class: "waves-effect" do %>
+          Mapa <i class="material-icons left">map</i>
+      <%end%>
+    <li>
+      <%= link_to lojas_url, class: "waves-effect" do %>
+        Lojas <i class="material-icons left">store_mall_directory</i>
+      <%end%>
+    </li>
+    <li><div class="divider"></div></li>
+    <% if usuario_signed_in? %>
+        <% if current_usuario.roles_mask == "cliente" %>
+            <% @carrinho = Carrinho.where(estado: "em_compra", usuario_id: current_usuario.id)%>
+                <%if @carrinho.count == 0%>
+                    <% @carrinho = Carrinho.create(usuario_id: current_usuario.id, estado: "em_compra")%>
+                    <% @carrinho.save%>
+                <%else%>
+                    <% @carrinho = @carrinho.first%>
+                <%end%>
+            <li>
+            <%= link_to carrinho_url(@carrinho.id), class: "waves-effect" do %>
+              <i class="material-icons left">shopping_cart</i>
+                <span class="badges" data-badge-caption=""><%= @carrinho.pedidos.count unless @carrinho.pedidos.nil? %></span>
+            <%end%>
+            </li>
+         <%end%>
+      <% end %>
+    <li><div class="divider"></div></li>
+    <li><a class="">Sair</a></li>
+  </ul>
