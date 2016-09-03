@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-
 //= require underscore
 //= require cocoon
 //= require gmaps/google
@@ -21,14 +20,6 @@
 //= require materialize/extras/nouislider
 //= require turbolinks
 //= require_tree .
-//(function ($) {
- // $(function () {
-
-
-
-  //}); // end of document ready
-//})(jQuery); // end of jQuery name space
-
 $(document).ready(function () {
   $('.button-collapse').sideNav();
  /* ... */ 
