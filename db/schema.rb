@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831110841) do
+ActiveRecord::Schema.define(version: 20160831144932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 20160831110841) do
     t.index ["usuario_id"], name: "index_carrinhos_on_usuario_id", using: :btree
   end
 
+  create_table "compras", force: :cascade do |t|
+    t.string   "cartao_numero"
+    t.string   "pin_cartao"
+    t.integer  "carrinho_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["carrinho_id"], name: "index_compras_on_carrinho_id", using: :btree
+  end
+
   create_table "fotografias", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -41,8 +50,8 @@ ActiveRecord::Schema.define(version: 20160831110841) do
     t.datetime "updated_at",                   null: false
     t.string   "serviceable_type"
     t.integer  "serviceable_id"
-    t.integer  "estado",           default: 1
     t.decimal  "preco"
+    t.integer  "estado",           default: 1
     t.integer  "loja_id"
     t.index ["loja_id"], name: "index_gerais_on_loja_id", using: :btree
     t.index ["serviceable_id"], name: "index_gerais_on_serviceable_id", using: :btree
@@ -85,9 +94,9 @@ ActiveRecord::Schema.define(version: 20160831110841) do
     t.string   "email"
     t.string   "telefone"
     t.string   "fotografia_da_loja"
-    t.integer  "estado",             default: 1
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.integer  "estado"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "loja_id"
     t.integer  "representante_id"
     t.index ["loja_id"], name: "index_lojas_on_loja_id", using: :btree
@@ -95,16 +104,17 @@ ActiveRecord::Schema.define(version: 20160831110841) do
   end
 
   create_table "pedidos", force: :cascade do |t|
-    t.integer  "estado",         default: 1
+    t.integer  "estado"
     t.integer  "quantidade"
     t.decimal  "desconto"
     t.decimal  "preco_unitario"
     t.decimal  "preco_total"
+    t.integer  "tipo"
     t.integer  "usuario_id"
     t.integer  "geral_id"
     t.integer  "loja_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "carrinho_id"
     t.index ["carrinho_id"], name: "index_pedidos_on_carrinho_id", using: :btree
     t.index ["geral_id"], name: "index_pedidos_on_geral_id", using: :btree
@@ -164,6 +174,7 @@ ActiveRecord::Schema.define(version: 20160831110841) do
   end
 
   add_foreign_key "carrinhos", "usuarios"
+  add_foreign_key "compras", "carrinhos"
   add_foreign_key "gerais", "lojas"
   add_foreign_key "horarios", "lojas"
   add_foreign_key "lojas", "lojas"
