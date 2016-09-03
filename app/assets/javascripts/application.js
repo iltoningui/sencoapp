@@ -11,19 +11,16 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require jquery
-//= require turbolinks
 //= require underscore
 //= require cocoon
 //= require gmaps/google
 //= require materialize-sprockets
 //= require materialize/extras/nouislider
+//= require turbolinks
 //= require_tree .
-(function($){
-  $(function(){
-
-    $('.button-collapse').sideNav();
-
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
+$(document).ready(function () {
+  $('.button-collapse').sideNav();
+ /* ... */ 
+});
