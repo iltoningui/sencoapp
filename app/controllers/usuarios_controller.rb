@@ -1,4 +1,9 @@
 class UsuariosController < ApplicationController
+  before_action :authenticate_usuario!
+
+  load_and_authorize_resource
+  alias_method :current_user, :current_usuario
+
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
 
   # GET /usuarios

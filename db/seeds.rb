@@ -17,3 +17,6 @@
     g.save
 
 end
+
+Usuario.create(nome:'Admin', apelido: 'Senco', email:'admin@senco.com', password: '12345678', password_confirmation: '12345678', roles_mask: 1)
+Usuario.create(nome:'Cliente', apelido: 'Senco', email:'cliente@senco.com', password: '12345678', password_confirmation: '12345678', roles_mask: 12)

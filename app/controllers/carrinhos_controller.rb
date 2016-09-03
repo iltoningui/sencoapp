@@ -1,5 +1,5 @@
 class CarrinhosController < ApplicationController
-  before_action :set_carrinho, only: [:show, :edit, :update, :destroy]
+  before_action :set_carrinho, only: [:show, :edit, :update, :destroy, :fazer_comprar]
 
   # GET /carrinhos
   # GET /carrinhos.json
@@ -7,9 +7,24 @@ class CarrinhosController < ApplicationController
     @carrinhos = Carrinho.all
   end
 
+  def fazer_comprar
+    carrinho = Carrinho.find(params[:id])
+    if (carrinho.estado == "em_compra")
+        carrinho.estado = "comprado"
+      else
+        carrinho.estado = "em_compra"
+      end
+      carrinho.save
+
+    #Carrinho.muda_estado(carrinho)
+    redirect_to carrinho_url
+  end
+
+
   # GET /carrinhos/1
   # GET /carrinhos/1.json
   def show
+    @pedidos = @carrinho.pedidos
   end
 
   # GET /carrinhos/new
@@ -54,7 +69,7 @@ class CarrinhosController < ApplicationController
   # DELETE /carrinhos/1
   # DELETE /carrinhos/1.json
   def destroy
-    @carrinho.destroy
+    @carrinho.pedidos.destroy_all
     respond_to do |format|
       format.html { redirect_to carrinhos_url, notice: 'Carrinho was successfully destroyed.' }
       format.json { head :no_content }

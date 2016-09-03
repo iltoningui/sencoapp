@@ -28,5 +28,20 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-  end
+
+    #super_admin: 1,
+    #admin: 2,
+    #gestor: 4,
+    #entregador: 8,
+    #atendedor: 9,
+    #cliente: 12,
+
+    user ||= Usuario.new
+
+    can :manage, :all if usuario.is?(:super_admin)
+    can :read,   :all if usuario.is?(:cliente)
+
+
+
+   end 
 end

@@ -1,12 +1,67 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Estado:</strong>
-  <%= @carrinho.estado %>
-</p>
+<div class="row">
+  <div>
+		
+	<p>
+		<strong>Estado:</strong>  <%= @carrinho.estado %>	  	
+		<%= link_to "checkout", fazer_comprar_url(@carrinho), method: :patch, class:"waves-effect waves-light btn right"%>
+	</p>
 
 
-<p>
-  <strong>Usuario:</strong>
-  <%= @carrinho.usuario %>
-</p>
+	<p>
+	  <strong>Usuario:</strong>
+	  <%= @carrinho.usuario %>
+   	  <%= link_to 'Esvaziar', @carrinho, method: :delete, data: { confirm: 'Are you sure?' },class:"waves-effect waves-light btn right" %>
+
+	</p>
+</div>
+
+
+<div class="row">
+	<div >
+	  	<table>
+		    <thead>
+		      <tr>
+		      	<th>fotografia</th>
+		        <th>Outras senas</th>		        
+		        <th>descricao</th>
+		      </tr>
+		    </thead>
+
+		    <tbody>
+	          <% @pedidos.each do |pedidos| %>
+		        <tr>
+		          <td>
+		          	<div class="card-image waves-effect waves-block waves-light">
+                  		<img class="activator" src="/assets/gerais/<%= rand (1..9) %>.jpg">
+                	</div>
+		          </td>
+		          <td>
+		          	<h6 left><strong>Nome:</strong><%= pedidos.geral.nome %></h6>
+		          	<h6><strong>Preço:</strong><%= pedidos.geral.preco %></h6>
+					<h6><% star = pedidos.geral.classificacao/2  %>
+	                   	<% half = star % 2 %>
+	                   	<% star_rest = 5 - star - half  %>
+	                   	<% star.downto(1) do |s| %>
+	                   	<span><i class="material-icons" style="color: #ffeb3b">star</i></span>
+	                   <%end%>
+	                   <% if half == 1 %>
+	                    <span><i class="material-icons" style="color: #ffeb3b">star_half</i></span>
+	                   <%end%>
+	                   <% star_rest.downto(1) do |r| %>
+	                    <span><i class="material-icons" style="color: #ffeb3b">star_border</i></span>
+	                   <%end%>
+	                   <span><%= rand (20..78)%> Usuarios</span>                    
+	                </h6>
+	                <h6>
+	                <a >Apagar</a> | <span><%= pedidos.geral.estado %></span></h6>
+		          </td>
+		          <td><%= pedidos.geral.descricao %></td>
+		        </tr>		        
+		      <% end %>
+		    </tbody>
+	  	</table>
+	</div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 class LojasController < ApplicationController
+
   before_action :set_loja, only: [:show, :edit, :update, :destroy]
 
   # GET /lojas

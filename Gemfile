@@ -25,6 +25,7 @@ gem "cancancan"
 gem 'carrierwave'
 gem "cocoon"
 gem 'kaminari'
+gem 'jquery-turbolinks'
 
 
 # Use jquery as the JavaScript library
