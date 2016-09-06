@@ -17,8 +17,6 @@ class GeraisController < ApplicationController
         @carrinho = @carrinho.first
       end
     end
-
-
   end
 
 
